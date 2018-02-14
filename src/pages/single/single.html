@@ -1,0 +1,67 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>
+      {{ministryId}} </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="card-background-page">
+    <ion-card *ngFor="let list of devoListOffline">
+    <ion-card-content>
+        <ion-col right text-right>
+            <ion-note>
+              {{list.devoDate}}
+            </ion-note>
+          </ion-col>
+        <ion-card-title>
+          <strong> Topic:</strong> {{list.devoTopic}}
+          </ion-card-title>
+          <div class="card-subtitle">Text:{{list.devoText}}</div>
+        <p>
+          {{list.devoMessage}}
+        </p>
+      </ion-card-content>
+      <ion-row no-padding>
+        <ion-col>
+          Prayer: {{list.devoPrayer}}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col>
+            <button ion-button icon-left clear small>
+              <ion-icon name="thumbs-up"></ion-icon>
+              <div>12 Likes</div>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button icon-left clear small>
+              <ion-icon name="text"></ion-icon>
+              <div>4 Comments</div>
+            </button>
+          </ion-col>
+          
+        </ion-row>
+    </ion-card>
+  <!--<div *ngFor="let list1 of devoList">
+  <h1>{{list1.devoTopic}}</h1>
+  </div>-->
+
+
+  <!-- <ion-list>
+    <ion-item *ngFor="let list of devoList">
+      
+        <h1></h1>
+      <label> Text:<h1> {{list.devoText}}</h1></label> 
+      <div>Message:
+      <label style:word-wrap="break-word"> {{list.devoMessage}}</label> </div>
+      Prayer:
+      <h1> {{list.devoPrayer}}</h1>
+      
+      
+    </ion-item>
+  </ion-list> -->
+  
+
+</ion-content>
