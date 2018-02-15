@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController/*, NavParams, AlertController*/ } from 'ionic-angular';
 import { MinistryService } from '../../providers/ministry-service';
+//import { DevotionService } from '../../providers/devotion-service';
 @IonicPage()
 
 @Component({

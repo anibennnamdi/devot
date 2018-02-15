@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,LoadingController } from 'ionic-angular';
 import { DevotionService } from '../../providers/devotion-service';
 @IonicPage()
 @Component({
@@ -16,14 +16,21 @@ export class Single {
   ministryId: any;
 
   // canEnter: boolean = false;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public srv: DevotionService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public srv: DevotionService,public loadingCtrl: LoadingController) {
 
   }
   ionViewCanEnter() {
   }
 
   ionViewDidLoad() {
-    this.loadDevotion();
+    
+      let loader = this.loadingCtrl.create({
+        content: "Please Wait.../Biko Chere... /Ejo Eduro...",
+        duration: 2000
+      });
+      loader.present();
+    
+      this.loadDevotion();
     //console.log("itemObj=", this.items)
 
   }
