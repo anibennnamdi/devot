@@ -1,10 +1,10 @@
 <ion-header>
 
-  <ion-navbar color="danger">
+  <ion-navbar hideBackButton="true" color="danger">
     <button ion-button menuToggle default>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title >HOME</ion-title>
+    <ion-title  class="heading-text">HOME</ion-title>
   </ion-navbar>
 
 
@@ -20,7 +20,7 @@
       <ion-item-sliding *ngFor="let post of ministyList; let i=index;">
     <ion-item >
       <ion-avatar item-left>
-        <img src="assets/logos/{{i}}.jpg" />
+        <img src="assets/logos/{{post.minName}}.jpg" />
               </ion-avatar>
       <button ion-button clear (click)="gotoDetails(post)">
           {{post.minName}}

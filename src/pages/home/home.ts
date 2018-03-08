@@ -1,26 +1,35 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController/*, NavParams, AlertController*/ } from 'ionic-angular';
+import { IonicPage,LoadingController, NavController/*, NavParams, AlertController*/ } from 'ionic-angular';
 import { MinistryService } from '../../providers/ministry-service';
-//import { DevotionService } from '../../providers/devotion-service';
+import { DevotionService } from '../../providers/devotion-service';
 @IonicPage()
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class Home {
+export class HomePage {
   mylistData: any[] = null;
   ministyList:any[];
   myImage: any[];
-  constructor(public navCtrl: NavController, public listService: MinistryService) {
+  constructor(public navCtrl: NavController, public listService: MinistryService,public srv: DevotionService,
+    public loadingCtrl: LoadingController) {
 
   }
   ionViewDidLoad() {
-    this.getMinlist()
+    let loader = this.loadingCtrl.create({
+      content: "Please Wait.../Biko Chere... /Ejo Eduro...",
+      duration: 2000
+    });
+    loader.present();
+  
+    this.getMinlist();
+    //this.getMinlist()
   }
+  
   getMinlist() {
     this.listService.getPosts1().subscribe(res => {
-      this.mylistData = res.data;
+      this.mylistData = res.data ||JSON.parse(window.localStorage.getItem('ministry'));
       window.localStorage.setItem('ministry',JSON.stringify(this.mylistData));
       this.ministyList=JSON.parse(window.localStorage.getItem('ministry'));
 

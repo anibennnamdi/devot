@@ -40,7 +40,7 @@ export class Single {
     this.ministryId = minObj.minName.toUpperCase();
     console.log("clicked id", minObj._id);
     this.srv.fetchDevotion().subscribe(res => {
-      this.devoList = res.data;
+      this.devoList = res.data || JSON.parse(window.localStorage.getItem('devo'));
       console.log("devoList", res.data);
       window.localStorage.setItem('devo',JSON.stringify(this.devoList));
       this.devoListOffline=JSON.parse(window.localStorage.getItem('devo'));

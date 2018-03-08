@@ -6,13 +6,16 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { DevotionService } from '../providers/devotion-service';
 import { MinistryService } from '../providers/ministry-service';
+import { HomePage } from '../pages/home/home';
 
 import { MyApp } from './app.component';
+import { UsersProvider } from '../providers/users/users';
 
 
 @NgModule({
   declarations: [
     MyApp,
+    HomePage,
     
   ],
   imports: [
@@ -23,14 +26,15 @@ import { MyApp } from './app.component';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    
+    HomePage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     MinistryService,
-    DevotionService
+    DevotionService,
+    UsersProvider
   ]
 })
 export class AppModule {}

@@ -9,7 +9,7 @@ export class MinistryService {
   //imgConst:string;
 
   constructor(public http: Http) {
-    this.baseurl = "https://devotionapp.herokuapp.com/api/v1/ministries.json";
+    this.baseurl = "https://devotionapp.herokuapp.com/api/v1/ministries/";
   }
 
   getPosts1() {
